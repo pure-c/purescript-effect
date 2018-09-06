@@ -1,14 +1,21 @@
 #include "runtime/purescript.h"
+#include "Effect.h"
 
-static int _magic = 0x1;
-
-PURS_FFI_FUNC_1(Effect_error, msg, {
-	return PURS_ANY_FOREIGN_NEW(&_magic, NULL);
-})
+int Effect_error_tag = 0;
 
 PURS_FFI_FUNC_2(Effect_pureE, a, _, {
 	return a;
 })
+
+int Effect_is_error (const purs_any_t * x) {
+	if (x != NULL && (*purs_any_get_tag_maybe(x)) == PURS_ANY_TAG_FOREIGN) {
+		const purs_foreign_t * k = purs_any_get_foreign(x);
+		if (k->tag == &Effect_error_tag) {
+			return 1;
+		}
+	}
+	return 0;
+}
 
 PURS_FFI_FUNC_3(Effect_bindE, _a, _f, _, {
 	const purs_any_t * a = purs_any_unthunk(_a);
@@ -16,14 +23,10 @@ PURS_FFI_FUNC_3(Effect_bindE, _a, _f, _, {
 	const purs_any_t * r1 = purs_any_app(a, NULL);
 
 	/* handle potential exception (experimental feature) */
-	if (r1 != NULL && (*purs_any_get_tag_maybe(r1)) == PURS_ANY_TAG_FOREIGN) {
-		const purs_foreign_t * r1f = purs_any_get_foreign(r1);
-		if (r1f->tag == &_magic) {
-			return r1;
-		}
+	if (Effect_is_error(r1)) {
+		return r1;
+	} else {
+		const purs_any_t * k = purs_any_app(f, r1);
+		return purs_any_app(k, NULL);
 	}
-
-	const purs_any_t * k = purs_any_app(f, r1);
-
-	return purs_any_app(k, NULL);
 })
