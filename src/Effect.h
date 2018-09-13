@@ -1,7 +1,7 @@
 #ifndef Effect_H
 #define Effect_H
 
-#include "runtime/purescript.h"
+#include <purescript.h>
 
 int Effect_error_tag;
 

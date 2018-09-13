@@ -1,4 +1,4 @@
-#include "runtime/purescript.h"
+#include <purescript.h>
 #include "Effect.h"
 
 int Effect_error_tag = 0;
