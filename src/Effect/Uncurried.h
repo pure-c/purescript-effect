@@ -1,0 +1,27 @@
+#ifndef Effect_Uncurried_H
+#define Effect_Uncurried_H
+
+#include <purescript.h>
+
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn1);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn2);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn3);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn4);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn5);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn6);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn7);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn8);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn9);
+PURS_FFI_EXPORT(Effect_Uncurried_mkEffectFn10);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn1);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn2);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn3);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn4);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn5);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn6);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn7);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn8);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn9);
+PURS_FFI_EXPORT(Effect_Uncurried_runEffectFn10);
+
+#endif // Effect_Uncurried_H
