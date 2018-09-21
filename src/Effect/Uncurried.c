@@ -1,5 +1,125 @@
 #include <purescript.h>
 
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn1, fn, {
+	return PURS_LAMBDA(x, {
+		return purs_any_app(purs_any_app(fn, x), NULL);
+	});
+});
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn2, fn, {
+	return PURS_LAMBDA_UNCURRIED_2(a, b, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), NULL);
+	});
+});
+
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn3, fn, {
+	return PURS_LAMBDA_UNCURRIED_3(a, b, c, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), c), NULL);
+	});
+});
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn4, fn, {
+	return PURS_LAMBDA_UNCURRIED_4(a, b, c, d, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), c), d), NULL);
+	});
+});
+
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn5, fn, {
+	return PURS_LAMBDA_UNCURRIED_5(a, b, c, d, e, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), c), d), e), NULL);
+	});
+});
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn6, fn, {
+	return PURS_LAMBDA_UNCURRIED_6(a, b, c, d, e, f, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), c), d), e), f), NULL);
+	});
+});
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn7, fn, {
+	return PURS_LAMBDA_UNCURRIED_7(a, b, c, d, e, f, g, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), c), d), e), f), g), NULL);
+	});
+});
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn8, fn, {
+	return PURS_LAMBDA_UNCURRIED_8(a, b, c, d, e, f, g, h, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), c), d), e), f), g), h), NULL);
+	});
+});
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn9, fn, {
+	return PURS_LAMBDA_UNCURRIED_9(a, b, c, d, e, f, g, h, i, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), c), d), e), f), g), h), i), NULL);
+	});
+});
+
+PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn10, fn, {
+	return PURS_LAMBDA_UNCURRIED_10(a, b, c, d, e, f, g, h, i, j, {
+		return purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(
+			purs_any_app(fn, a), b), c), d), e), f), g), h), i), j), NULL);
+	});
+});
+
+PURS_FFI_FUNC_3(Effect_Uncurried_runEffectFn1, fn, a, _, {
+	return purs_any_app(fn, a);
+});
+
 PURS_FFI_FUNC_4(Effect_Uncurried_runEffectFn2, fn, a, b, _, {
 	return purs_any_app(fn, a, b);
 });
