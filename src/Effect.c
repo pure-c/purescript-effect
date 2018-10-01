@@ -5,7 +5,7 @@ int Effect_error_tag = 0;
 
 PURS_FFI_FUNC_2(Effect_pureE, a, _, {
 	return a;
-})
+});
 
 int Effect_is_error (const purs_any_t * x) {
 	if (x != NULL && (*purs_any_get_tag_maybe(x)) == PURS_ANY_TAG_FOREIGN) {
@@ -29,4 +29,4 @@ PURS_FFI_FUNC_3(Effect_bindE, _a, _f, _, {
 		const purs_any_t * k = purs_any_app(f, r1);
 		return purs_any_app(k, NULL);
 	}
-})
+});

@@ -1,5 +1,6 @@
 #include <purescript.h>
 
+/*
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn1, fn, {
 	return PURS_LAMBDA(x, {
 		return purs_any_app(purs_any_app(fn, x), NULL);
@@ -155,3 +156,4 @@ PURS_FFI_FUNC_11(Effect_Uncurried_runEffectFn9, fn, a, b, c, d, e, f, g, h, i, _
 PURS_FFI_FUNC_12(Effect_Uncurried_runEffectFn10, fn, a, b, c, d, e, f, g, h, i, j, _, {
 	return purs_any_app(fn, a, b, c, d, e, f, g, h, i, j);
 });
+*/
