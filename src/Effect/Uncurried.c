@@ -1,119 +1,193 @@
 #include <purescript.h>
 
+const ANY * _effect_fun_1 (const void * ctx, const ANY * a, va_list _) {
+	const ANY * fn = (const ANY *) ctx;
+	return purs_any_app(
+		purs_any_app(fn, a), NULL);
+}
+
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn1, fn, {
-	return PURS_LAMBDA(x, {
-		return purs_any_app(purs_any_app(fn, x), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_1);
 });
+
+const ANY * _effect_fun_2 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), NULL);
+}
 
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn2, fn, {
-	return PURS_LAMBDA_UNCURRIED_2(a, b, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_2);
 });
 
+const ANY * _effect_fun_3 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	const ANY * c = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), c), NULL);
+}
 
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn3, fn, {
-	return PURS_LAMBDA_UNCURRIED_3(a, b, c, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), c), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_3);
 });
+
+const ANY * _effect_fun_4 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	const ANY * c = va_arg(args, const ANY *);
+	const ANY * d = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), c), d), NULL);
+}
 
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn4, fn, {
-	return PURS_LAMBDA_UNCURRIED_4(a, b, c, d, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), c), d), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_4);
 });
 
+const ANY * _effect_fun_5 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	const ANY * c = va_arg(args, const ANY *);
+	const ANY * d = va_arg(args, const ANY *);
+	const ANY * e = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), c), d), e), NULL);
+}
 
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn5, fn, {
-	return PURS_LAMBDA_UNCURRIED_5(a, b, c, d, e, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), c), d), e), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_5);
 });
+
+const ANY * _effect_fun_6 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	const ANY * c = va_arg(args, const ANY *);
+	const ANY * d = va_arg(args, const ANY *);
+	const ANY * e = va_arg(args, const ANY *);
+	const ANY * f = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), c), d), e), f), NULL);
+}
 
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn6, fn, {
-	return PURS_LAMBDA_UNCURRIED_6(a, b, c, d, e, f, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), c), d), e), f), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_6);
 });
+
+const ANY * _effect_fun_7 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	const ANY * c = va_arg(args, const ANY *);
+	const ANY * d = va_arg(args, const ANY *);
+	const ANY * e = va_arg(args, const ANY *);
+	const ANY * f = va_arg(args, const ANY *);
+	const ANY * g = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), c), d), e), f), g), NULL);
+}
 
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn7, fn, {
-	return PURS_LAMBDA_UNCURRIED_7(a, b, c, d, e, f, g, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), c), d), e), f), g), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_7);
 });
+
+const ANY * _effect_fun_8 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	const ANY * c = va_arg(args, const ANY *);
+	const ANY * d = va_arg(args, const ANY *);
+	const ANY * e = va_arg(args, const ANY *);
+	const ANY * f = va_arg(args, const ANY *);
+	const ANY * g = va_arg(args, const ANY *);
+	const ANY * h = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), c), d), e), f), g), h), NULL);
+}
 
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn8, fn, {
-	return PURS_LAMBDA_UNCURRIED_8(a, b, c, d, e, f, g, h, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), c), d), e), f), g), h), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_8);
 });
+
+const ANY * _effect_fun_9 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	const ANY * c = va_arg(args, const ANY *);
+	const ANY * d = va_arg(args, const ANY *);
+	const ANY * e = va_arg(args, const ANY *);
+	const ANY * f = va_arg(args, const ANY *);
+	const ANY * g = va_arg(args, const ANY *);
+	const ANY * h = va_arg(args, const ANY *);
+	const ANY * i = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), c), d), e), f), g), h), i), NULL);
+}
 
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn9, fn, {
-	return PURS_LAMBDA_UNCURRIED_9(a, b, c, d, e, f, g, h, i, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), c), d), e), f), g), h), i), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_9);
 });
 
+const ANY * _effect_fun_10 (const void * ctx, const ANY * a, va_list args) {
+	const ANY * fn = (const ANY *) ctx;
+	const ANY * b = va_arg(args, const ANY *);
+	const ANY * c = va_arg(args, const ANY *);
+	const ANY * d = va_arg(args, const ANY *);
+	const ANY * e = va_arg(args, const ANY *);
+	const ANY * f = va_arg(args, const ANY *);
+	const ANY * g = va_arg(args, const ANY *);
+	const ANY * h = va_arg(args, const ANY *);
+	const ANY * i = va_arg(args, const ANY *);
+	const ANY * j = va_arg(args, const ANY *);
+	return purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(
+		purs_any_app(fn, a), b), c), d), e), f), g), h), i), j), NULL);
+}
+
 PURS_FFI_FUNC_1(Effect_Uncurried_mkEffectFn10, fn, {
-	return PURS_LAMBDA_UNCURRIED_10(a, b, c, d, e, f, g, h, i, j, {
-		return purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(
-			purs_any_app(fn, a), b), c), d), e), f), g), h), i), j), NULL);
-	});
+	return purs_any_cont_new(fn, _effect_fun_10);
 });
 
 PURS_FFI_FUNC_3(Effect_Uncurried_runEffectFn1, fn, a, _, {
