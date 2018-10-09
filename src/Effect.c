@@ -30,3 +30,34 @@ PURS_FFI_FUNC_3(Effect_bindE, _a, _f, _, {
 		return purs_any_app(k, NULL);
 	}
 });
+
+PURS_FFI_FUNC_2(Effect_untilE, f, _, {
+	while (purs_any_not(purs_any_app(f, NULL)));
+	return NULL;
+});
+
+PURS_FFI_FUNC_3(Effect_whileE, f, a, _, {
+	while (purs_any_app(f, NULL)) {
+		purs_any_app(a, NULL);
+	}
+	return NULL;
+});
+
+PURS_FFI_FUNC_4(Effect_forE, _lo, _hi, f, _, {
+	int lo = purs_any_get_int(_lo);
+	int hi = purs_any_get_int(_hi);
+	for (int i = lo; i < hi; i++) {
+		purs_any_app(purs_any_app(f, purs_any_int_new(i)), NULL);
+	}
+	return NULL;
+});
+
+PURS_FFI_FUNC_3(Effect_foreachE, _as, f, _, {
+	const purs_vec_t * as = purs_any_get_array(_as);
+	int i = 0;
+	const purs_any_t * tmp;
+	purs_vec_foreach(as, tmp, i) {
+		purs_any_app(purs_any_app(f, tmp), NULL);
+	}
+	return NULL;
+});
