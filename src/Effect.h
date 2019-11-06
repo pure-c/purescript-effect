@@ -3,15 +3,6 @@
 
 #include <purescript.h>
 
-int Effect_error_tag;
-
-PURS_FFI_EXPORT(Effect_error);
-
-#define Effect_error(MSG)\
-	(const purs_any_t *) PURS_ANY_FOREIGN_NEW(&Effect_error_tag, (const purs_any_t *) MSG);
-
-int Effect_is_error(const purs_any_t *);
-
 PURS_FFI_EXPORT(Effect_pureE);
 PURS_FFI_EXPORT(Effect_bindE);
 PURS_FFI_EXPORT(Effect_untilE);

@@ -1,32 +1,27 @@
 #include <purescript.h>
 #include "Effect.h"
 
-int Effect_error_tag = 0;
-
-PURS_FFI_FUNC_2(Effect_pureE, a, _, {
-	return a;
-});
-
-int Effect_is_error (const purs_any_t * x) {
-	if (x != NULL && purs_any_get_tag(x) == PURS_ANY_TAG_FOREIGN) {
-		const purs_foreign_t * k = purs_any_get_foreign(x);
-		if (k->tag == &Effect_error_tag) {
-			return 1;
-		}
-	}
-	return 0;
+PURS_FFI_FUNC_2(Effect_pureE, _a, _) {
+	PURS_ANY_RETAIN(_a);
+	return _a;
 }
 
-PURS_FFI_FUNC_3(Effect_bindE, _a, _f, _, {
-	const purs_any_t * a = purs_any_unthunk(_a);
-	const purs_any_t * f = purs_any_unthunk(_f);
-	const purs_any_t * r1 = purs_any_app(a, NULL);
+PURS_FFI_FUNC_3(Effect_bindE, _a, _f, _) {
+	purs_any_t ret;
+	purs_any_t a, f, r1, k;
+	int a_has_changed, f_has_changed = 0;
 
-	/* handle potential exception (experimental feature) */
-	if (Effect_is_error(r1)) {
-		return r1;
-	} else {
-		const purs_any_t * k = purs_any_app(f, r1);
-		return purs_any_app(k, NULL);
-	}
-});
+	a = purs_any_unthunk(_a, &a_has_changed);
+	f = purs_any_unthunk(_f, &f_has_changed);
+	r1 = purs_any_app(a, purs_any_null);  /* force the first effect thunk */
+	k = purs_any_app(f, r1);
+	ret = purs_any_app(k, purs_any_null); /* force the next effect thunk */
+
+	if (a_has_changed) PURS_ANY_RELEASE(a);
+	if (f_has_changed) PURS_ANY_RELEASE(f);
+
+	PURS_ANY_RELEASE(r1);
+	PURS_ANY_RELEASE(k);
+
+	return ret;
+}
