@@ -25,3 +25,18 @@ PURS_FFI_FUNC_3(Effect_bindE, _a, _f, _) {
 
 	return ret;
 }
+
+PURS_FFI_FUNC_3(Effect_foreachE, _as, f, _) {
+	int i;
+	purs_any_t a, tmp1, tmp2;
+	const purs_vec_t *as;
+	as = purs_any_force_array(_as);
+	purs_vec_foreach(as, a, i) {
+		tmp1 = purs_any_app(f, a);
+		tmp2 = purs_any_app(tmp1, purs_any_null);
+		PURS_ANY_RELEASE(tmp2);
+		PURS_ANY_RELEASE(tmp1);
+	}
+	PURS_RC_RELEASE(as);
+	return purs_any_null;
+}
